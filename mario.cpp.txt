@@ -1,0 +1,51 @@
+#include <cs50.h>
+#include <stdio.h>
+
+// This program takes input from the user from 0 to 8 and prints left align piramid like that:
+
+//         *
+//        **
+//       ***
+//      ****
+//     *****
+//    ******
+//   *******
+//  ********
+
+int main(void)
+{
+    // Get an input from the user between 1 - 8
+
+    int height;
+    do
+    {
+        height = get_int("Height of the piramig: ");
+    }
+    // If condition below evaluate to fals, than the number is goin to be accepted
+    while (height < 1 || height > 8);
+
+    // First loop prints how many rows to display
+    for (int i = 0; i<height; i++)
+        {
+            if (height == 1) {
+                printf("#\n");
+                break;
+            }
+
+        // Second loop print how many "O" in a row
+        for (int j = height - 1; j > i; j--)
+        {
+
+            printf(" ");
+        }
+
+        // Third loop prints how many * in a row
+        // height - i ('zero' for the first iteration, so needs to add 1 in order to print one star in first row)
+        for (int k = (height - i - 1); k<height; k++)
+        {
+            printf("#");
+        }
+        printf("\n");
+    }
+
+}
